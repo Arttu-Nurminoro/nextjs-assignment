@@ -94,13 +94,13 @@ const tempData:MunHomma[] = [
 
 function TempPopulateNumlist(numArr:number[]) {
     tempData.forEach(item => {
-        numArr.push(item.price);
+      numArr.push(item.price);
     });
     return numArr;
 }
 function TempPopulateStringlist(stringArr:string[]) {
     tempData.forEach(item => {
-        stringArr.push(item.startDate.slice(11,13));
+      stringArr.push(item.startDate.slice(11,13) + "-" + item.endDate.slice(11,13));
     });
     return stringArr;
 }
@@ -112,10 +112,10 @@ export default function Chartti() {
     TempPopulateNumlist(arr1);
     TempPopulateStringlist(labels);
     const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Viimeisimmät hinnat',
+      labels,
+      datasets: [
+         {
+          label: 'Hinta snt/kwh',
           data: arr1,
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -124,7 +124,9 @@ export default function Chartti() {
     };
     return(
         <>
-        <Line className='w-full h-full' options={options} data={data} />
+          <div className=' w-3/5 h-3/5 m-auto bg-white shadow-md shadow-black'>
+            <Line className='w-full h-full' options={options} data={data} />
+          </div>
         </>
     );
 }
