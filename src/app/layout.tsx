@@ -3,8 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] })
-const Height = "h-screen"
-const Width = "w-screen"
+const Height = " h-screen"
+const Width = " w-screen"
+const bgColor = " bg-gradient-to-r from-cyan-300 to-blue-900"
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " " + Height + " " + Width} >{children}</body>
+      <body className={inter.className +  Height  + Width + bgColor } >{children}</body>
     </html>
   )
 }
