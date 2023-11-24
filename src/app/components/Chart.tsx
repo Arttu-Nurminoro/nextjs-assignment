@@ -124,8 +124,8 @@ export default function Chartti() {
     };
     return(
         <>
-          <div className=' w-3/5 max-h-fit p-2 m-auto bg-white shadow-md shadow-black'>
-            <Line className='w-full h-full m-auto' options={options} data={data} />
+          <div className='w-3/5 max-h-fit p-2 m-auto bg-white shadow-md shadow-black'>
+            <Line className='w-auto h-auto' options={options} data={data} />
           </div>
         </>
     );
