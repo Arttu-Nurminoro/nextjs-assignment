@@ -1,14 +1,47 @@
+'use client'
+import { type } from 'os';
+import { useState, createContext } from 'react';
+import DatePicker from 'react-date-picker';
 
-export default function SearchForm({datetimestring}:{datetimestring:string}) {
-    function juupajuu() {
-        let newDate = new Date(datetimestring);
-        
+type ValuePiece = Date | null;
+type value = ValuePiece | [ValuePiece, ValuePiece]
+
+export default function SearchForm() {
+    const [SearchDate, setSearchDate] = useState<value>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
+    function JokuSiisti(tempstring:string) {
+        var SearchDate = new Date(tempstring);
+        let newString:string = SearchDate.getDay().toString()
+        return newString;
     }
+    const minDate = new Date("2021-01-01");
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate()+1);
+    const maxDate = tomorrow;         //???????????????????????????????????????????????????????????????????????????????????????????????????
+    console.log(maxDate + "      |      " + minDate);
     return(
-        <div className="">
+        <div className=" bg-white flex flex-col">
             <p>Anna päivä jolta haluat hakea sähkön hintoja </p>
-            <input id="search" placeholder="" type="date" value={datetimestring} className=""/>
-            <button type="button" onClick={juupajuu}>Search</button>
+            <DatePicker minDate={minDate} maxDate={maxDate} required={true} locale='fi-FI' value={SearchDate} returnValue="start" onChange={e => {setSearchDate(old => e); console.log(e)}} />
+            <button type="button">Search</button>
         </div>
     );
 }
+
+// export async function Results() {
+
+//     return(
+//         <>
+//         <div>
+//             <ul>
+//                 {jotaki.map((item) => {
+//                     return(
+//                         <>
+//                         <li></li>
+//                         </>
+//                     )
+//                 })}
+//             </ul>
+//         </div>
+//         </>
+//     );
+// }
