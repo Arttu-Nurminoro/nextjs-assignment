@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import DatePicker from 'react-date-picker';
 
+
 type ValuePiece = Date | null;
 type value = ValuePiece | [ValuePiece, ValuePiece]
-
 export default function SearchForm() {
     const [SearchDate, setSearchDate] = useState<value>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
     function JokuSiisti(tempstring:string) {
@@ -15,8 +15,7 @@ export default function SearchForm() {
     const minDate = new Date("2021-01-01");
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate()+1);
-    const maxDate = tomorrow;         //???????????????????????????????????????????????????????????????????????????????????????????????????
-    console.log(maxDate + "      |      " + minDate);
+    const maxDate = tomorrow;
     return(
         <div className=" bg-white flex flex-col">
             <p>Anna päivä jolta haluat hakea sähkön hintoja </p>
