@@ -17,9 +17,9 @@ export default function SearchForm() {
     tomorrow.setDate(tomorrow.getDate()+1);
     const maxDate = tomorrow;
     return(
-        <div className=" bg-white flex flex-col">
-            <p>Anna päivä jolta haluat hakea sähkön hintoja </p>
-            <DatePicker minDate={minDate} maxDate={maxDate} required={true} locale='fi-FI' value={SearchDate} returnValue="start" onChange={e => {setSearchDate(old => e); console.log(e)}} />
+        <div className="flex flex-col bg-white border border-solid border-black w-4/5 h-4/5 m-auto">
+            <p className="mx-5 mt-5">Anna päivä jolta haluat hakea sähkön hintoja </p>
+            <DatePicker className="w-4/12 mx-5" minDate={minDate} maxDate={maxDate} required={true} locale='fi-FI' value={SearchDate} returnValue="start" onChange={e => {setSearchDate(old => e);}} />
             <button type="button">Search</button>
         </div>
     );
