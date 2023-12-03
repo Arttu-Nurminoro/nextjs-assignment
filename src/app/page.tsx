@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import Navbar from './components/Navbar';
 import Chartti from './components/Chart';
+import Navbar from './components/Navbar';
+
+
 export default async function Home() {
 
   return (
@@ -12,7 +14,7 @@ export default async function Home() {
         <p>Jotai tekstii jotai tekstii</p>
         <h1>isodhfsuisdhfdsjfdsdfos</h1>
       </div>
-      <Chartti/>
+      <Chartti />
     </main>
   );
 }
