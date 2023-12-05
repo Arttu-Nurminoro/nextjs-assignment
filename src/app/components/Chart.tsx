@@ -23,6 +23,9 @@ ChartJS.register(
 );
 export const options = {
   responsive: true,
+  scales:{
+    x: {reverse: true}
+  },
   plugins: {
     legend: {
       position: 'top' as const,
