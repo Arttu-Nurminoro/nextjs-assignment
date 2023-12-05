@@ -50,7 +50,6 @@ export default async function Home() {
       }
     ],
   };
-  console.log(Dataa);
   return (
     <main className="flex flex-col h-full w-auto">
       <Navbar>
