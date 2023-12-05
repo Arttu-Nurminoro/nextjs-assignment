@@ -8,6 +8,24 @@ type value = ValuePiece | [ValuePiece, ValuePiece]
 
 export default function SearchForm() {
     const [SearchDate, setSearchDate] = useState<value>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
+    function Results({jotaki}) {
+
+        return(
+            <>
+            <div>
+                <ul>
+                    {jotaki.map((item) => {
+                        return(
+                            <>
+                            <li></li>
+                            </>
+                        )
+                    })}
+                </ul>
+            </div>
+            </>
+        );
+    }
     function JokuSiisti(tempstring:string) {
         var SearchDate = new Date(tempstring);
         let newString:string = SearchDate.getDay().toString()
@@ -28,21 +46,3 @@ export default function SearchForm() {
     );
 }
 
-// export async function Results() {
-
-//     return(
-//         <>
-//         <div>
-//             <ul>
-//                 {jotaki.map((item) => {
-//                     return(
-//                         <>
-//                         <li></li>
-//                         </>
-//                     )
-//                 })}
-//             </ul>
-//         </div>
-//         </>
-//     );
-// }
