@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import SearchForm from "../components/SearchForm";
 
 export default async function page() {              //https://api.porssisahko.net/v1/price.json?date=[date]&hour=[hour]
-
+    
     return(
         <main className='flex flex-col w-auto h-auto'>
             <Navbar>
