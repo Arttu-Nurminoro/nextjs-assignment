@@ -31,7 +31,7 @@ export default function SearchForm() {
     const [SearchDate, setSearchDate] = useState<Date>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
     const [IsError, setIsError] = useState(false)
     const [DataObj, setDataObj] = useState<jotaki>();
-    const HaeDataa = (tunti:any, pvm:any) => {}
+    
     function JokuSiisti() {
         var tempDateTime = moment(SearchDate);
         const pvm = tempDateTime.format("YYYY-MM-DD")
