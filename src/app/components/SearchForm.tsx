@@ -1,5 +1,5 @@
 'use client'
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datetime-picker';
 
@@ -22,7 +22,7 @@ function Results({DataObj, IsError}:any) {
     return(
         <>
         <div>
-            {"" ?? DataObj?.price}
+            {DataObj?.price}
         </div>
         </>
     );
@@ -31,19 +31,19 @@ export default function SearchForm() {
     const [SearchDate, setSearchDate] = useState<Date>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
     const [IsError, setIsError] = useState(false)
     const [DataObj, setDataObj] = useState<jotaki>();
+    const [HakuPVM, setHakuPVM] = useState<Moment>();
     
     function JokuSiisti() {
         var tempDateTime = moment(SearchDate);
-        const pvm = tempDateTime.format("YYYY-MM-DD")
-        const tunti = tempDateTime.hour();
-        console.log(pvm, "                     ", SearchDate);
+        setHakuPVM(old => tempDateTime)
+        console.log(tempDateTime.date(), "                     ", tempDateTime.hour());
     }
-    // useEffect(() => {
-    //     fetch(`https://api.porssisahko.net/v1/price.json?date=${pvm}&hour=${tunti}`)
-    //     .then(res => res.json())
-    //     .then(data => setDataObj(data))
-    //     .catch(err => {console.log(err); setIsError(true)})
-    //     })
+    useEffect(() => {
+        fetch(`https://api.porssisahko.net/v1/price.json?date=${HakuPVM?.format("YYYY-MM-DD")}&hour=${HakuPVM?.hour()}`)
+        .then(res => res.json())
+        .then(data => {setDataObj(data); console.log(data)})
+        .catch(err => {console.log(err); setIsError(true)})
+        })
     const minDate = new Date("2021-01-01");
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate()+1);
