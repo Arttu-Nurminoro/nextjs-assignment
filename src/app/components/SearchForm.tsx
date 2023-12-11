@@ -31,18 +31,19 @@ export default function SearchForm() {
     const [SearchDate, setSearchDate] = useState<Date>(new Date());    //css stylet seuraavaks ja toi joku data hankinta paska et joooooooooooooo ja si pitäs tehä se jälkee se yks jutu näkymä
     const [IsError, setIsError] = useState(false)
     const [DataObj, setDataObj] = useState<jotaki>();
+    const HaeDataa = (tunti:any, pvm:any) => {}
     function JokuSiisti() {
         var tempDateTime = moment(SearchDate);
         const pvm = tempDateTime.format("YYYY-MM-DD")
         const tunti = tempDateTime.hour();
         console.log(pvm, "                     ", SearchDate);
-        useEffect(() => {
-        fetch(`https://api.porssisahko.net/v1/price.json?date=${pvm}&hour=${tunti}`)
-        .then(res => res.json())
-        .then(data => setDataObj(data))
-        .catch(err => {console.log(err); setIsError(true)})
-        })
     }
+    // useEffect(() => {
+    //     fetch(`https://api.porssisahko.net/v1/price.json?date=${pvm}&hour=${tunti}`)
+    //     .then(res => res.json())
+    //     .then(data => setDataObj(data))
+    //     .catch(err => {console.log(err); setIsError(true)})
+    //     })
     const minDate = new Date("2021-01-01");
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate()+1);
